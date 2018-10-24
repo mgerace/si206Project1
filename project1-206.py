@@ -9,8 +9,25 @@ def getData(file):
 #Input: file name
 #Ouput: return a list of dictionary objects where
 #the keys are from the first row in the data. and the values are each of the other rows
+	inFile = open(file, "r")
+	dictList = []
+	for line in inFile:
+		tempDict = {}
+		lineVals = line.split(",")
+		firstName = lineVals[0]
+		lastName = lineVals[1]
+		email = lineVals[2]
+		classYear = lineVals[3]
+		dOB = lineVals[4].rstrip()
 
-	pass
+		tempDict["First"] = firstName
+		tempDict["Last"] = lastName
+		tempDict["Email"] = email
+		tempDict["Class"] = classYear
+		tempDict["DOB"] = dOB
+		dictList.append(tempDict)
+
+	inFile.close()
 
 def mySort(data,col):
 # Sort based on key/column
@@ -112,6 +129,9 @@ def main():
 
 	print("Your final score is " + str(total))
 
+'''
 # Standard boilerplate to call the main() function that tests all your code
 if __name__ == '__main__':
     main()
+'''
+getData("P1DataA.csv")
