@@ -137,9 +137,15 @@ def mySortPrint(a,col,fileName):
 # as fist,last,email
 #Input: list of dictionaries, col (key) to sort by and output file name
 #Output: No return value, but the file is written
+	inFile = open(fileName, "w")
 
-	inFile = open(filename, "w")
+	sortedList = sorted(a, key = lambda k: k[col], reverse = False)
 	
+	for person in sortedList:
+		inFile.write(person["First"] + "," + person["Last"] + "," + person["Email"] + "\n")
+
+	inFile.close()
+
 
 def findAge(a):
 # def findAge(a):
@@ -172,6 +178,7 @@ def main():
 	total = 0
 	print("Read in Test data and store as a list of dictionaries")
 	data = getData('P1DataA.csv')
+	print(data)
 	data2 = getData('P1DataB.csv')
 	total += test(type(data),type([]),50)
 
