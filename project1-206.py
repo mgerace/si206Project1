@@ -36,7 +36,7 @@ def mySort(data,col):
 #Output: Return the first item in the sorted list as a string of just: firstName lastName
 	sortedList = sorted(data, key = lambda k: k[col], reverse = False)
 	finalName = sortedList[0]["First"] + " " + sortedList[0]["Last"]
-	print(finalName)
+
 	return finalName
 
 
