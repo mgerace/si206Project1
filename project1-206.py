@@ -28,13 +28,17 @@ def getData(file):
 		dictList.append(tempDict)
 
 	inFile.close()
+	return dictList
 
 def mySort(data,col):
 # Sort based on key/column
 #Input: list of dictionaries and col (key) to sort on
 #Output: Return the first item in the sorted list as a string of just: firstName lastName
+	sortedList = sorted(data, key = lambda k: k[col], reverse = False)
+	finalName = sortedList[0]["First"] + " " + sortedList[0]["Last"]
+	print(finalName)
+	return finalName
 
-	pass
 
 
 def classSizes(data):
@@ -134,4 +138,6 @@ def main():
 if __name__ == '__main__':
     main()
 '''
-getData("P1DataA.csv")
+data = getData("P1DataA.csv")
+mySort(data, "Last")
+
