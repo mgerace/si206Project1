@@ -60,7 +60,7 @@ def classSizes(data):
 			jrTotal = jrTotal + 1
 		elif person["Class"] == "Sophomore":
 			sophTotal = sophTotal + 1
-		else:
+		elif person["Class"] == "Freshman":
 			frTotal = frTotal + 1
 
 	srTuple = ("Senior", srTotal)
@@ -75,6 +75,7 @@ def classSizes(data):
 	frTuple = ("Freshman", frTotal)
 	tupleList.append(frTuple)
 
+	tupleList = sorted(tupleList, key = lambda k: k[1], reverse = True)
 	return tupleList
 
 
@@ -160,12 +161,9 @@ def main():
 
 	print("Your final score is " + str(total))
 
-'''
+
 # Standard boilerplate to call the main() function that tests all your code
 if __name__ == '__main__':
     main()
-'''
-data = getData("P1DataA.csv")
-mySort(data, "Last")
-classSizes(data)
+
 
