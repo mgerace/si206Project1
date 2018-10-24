@@ -47,8 +47,35 @@ def classSizes(data):
 # Output: Return a list of tuples sorted by the number of students in that class in
 # descending order
 # [('Senior', 26), ('Junior', 25), ('Freshman', 21), ('Sophomore', 18)]
+	srTotal = 0
+	jrTotal = 0
+	sophTotal = 0
+	frTotal = 0
+	tupleList = []
 
-	pass
+	for person in data:
+		if person["Class"] == "Senior":
+			srTotal = srTotal + 1
+		elif person["Class"] == "Junior":
+			jrTotal = jrTotal + 1
+		elif person["Class"] == "Sophomore":
+			sophTotal = sophTotal + 1
+		else:
+			frTotal = frTotal + 1
+
+	srTuple = ("Senior", srTotal)
+	tupleList.append(srTuple)
+
+	jrTuple = ("Junior", jrTotal)
+	tupleList.append(jrTuple)
+
+	sophTuple = ("Sophomore", sophTotal)
+	tupleList.append(sophTuple)
+
+	frTuple = ("Freshman", frTotal)
+	tupleList.append(frTuple)
+
+	return tupleList
 
 
 def findMonth(a):
@@ -140,4 +167,5 @@ if __name__ == '__main__':
 '''
 data = getData("P1DataA.csv")
 mySort(data, "Last")
+classSizes(data)
 
