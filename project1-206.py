@@ -80,11 +80,56 @@ def classSizes(data):
 
 
 def findMonth(a):
-# Find the most common birth month form this data
+# Find the most common birth month from this data
 # Input: list of dictionaries
 # Output: Return the month (1-12) that had the most births in the data
+	janCnt = 0
+	febCnt = 0
+	marCnt = 0
+	aprCnt = 0
+	mayCnt = 0
+	junCnt = 0
+	julCnt = 0
+	augCnt = 0
+	sepCnt = 0
+	octCnt = 0
+	novCnt = 0
+	decCnt = 0
+	for person in a:
+		if person["DOB"][0:2] == "1/":
+			janCnt = janCnt + 1
+		elif person["DOB"][0:2] == "2/":
+			febCnt = febCnt + 1
+		elif person["DOB"][0:2] == "3/":
+			marCnt = marCnt + 1
+		elif person["DOB"][0:2] == "4/":
+			aprCnt = aprCnt + 1
+		elif person["DOB"][0:2] == "5/":
+			mayCnt = mayCnt + 1
+		elif person["DOB"][0:2] == "6/":
+			junCnt = junCnt + 1
+		elif person["DOB"][0:2] == "7/":
+			julCnt = julCnt + 1
+		elif person["DOB"][0:2] == "8/":
+			augCnt = augCnt + 1
+		elif person["DOB"][0:2] == "9/":
+			sepCnt = sepCnt + 1
+		elif person["DOB"][0:2] == "10":
+			octCnt = octCnt + 1
+		elif person["DOB"][0:2] == "11":
+			novCnt = novCnt + 1
+		elif person["DOB"][0:2] == "12":
+			decCnt = decCnt + 1
 
-	pass
+	monthList = [(1, janCnt), (2, febCnt), (3, marCnt), (4, aprCnt),
+				(5, mayCnt), (6, junCnt), (7, julCnt), (8, augCnt),
+				(9, sepCnt), (10, octCnt), (11, novCnt), (12, decCnt)]
+
+	monthList = sorted(monthList, key = lambda k: k[1], reverse = True)
+
+	return monthList[0][0]
+
+
 
 def mySortPrint(a,col,fileName):
 #Similar to mySort, but instead of returning single
@@ -93,7 +138,8 @@ def mySortPrint(a,col,fileName):
 #Input: list of dictionaries, col (key) to sort by and output file name
 #Output: No return value, but the file is written
 
-	pass
+	inFile = open(filename, "w")
+	
 
 def findAge(a):
 # def findAge(a):
