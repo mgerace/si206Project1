@@ -1,7 +1,9 @@
 import os
 import filecmp
 from dateutil.relativedelta import *
-from datetime import date
+import datetime
+import statistics
+#import date
 
 
 def getData(file):
@@ -156,8 +158,14 @@ def findAge(a):
 # Output: Return the average age of the students and round that age to the nearest
 # integer.  You will need to work with the DOB and the current date to find the current
 # age in years.
-
-	pass
+	
+	now = datetime.datetime.now()
+	ageList = []
+	for person in a:
+		age = 2018 - int(person["DOB"][-4:])
+		ageList.append(int(age))
+	meanAge = int(statistics.mean(ageList))
+	return meanAge
 
 
 ################################################################
@@ -181,7 +189,6 @@ def main():
 	total = 0
 	print("Read in Test data and store as a list of dictionaries")
 	data = getData('P1DataA.csv')
-	print(data)
 	data2 = getData('P1DataB.csv')
 	total += test(type(data),type([]),50)
 
