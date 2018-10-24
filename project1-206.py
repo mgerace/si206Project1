@@ -20,12 +20,15 @@ def getData(file):
 		classYear = lineVals[3]
 		dOB = lineVals[4].rstrip()
 
-		tempDict["First"] = firstName
-		tempDict["Last"] = lastName
-		tempDict["Email"] = email
-		tempDict["Class"] = classYear
-		tempDict["DOB"] = dOB
-		dictList.append(tempDict)
+		if firstName == "First":
+			continue
+		else:
+			tempDict["First"] = firstName
+			tempDict["Last"] = lastName
+			tempDict["Email"] = email
+			tempDict["Class"] = classYear
+			tempDict["DOB"] = dOB
+			dictList.append(tempDict)
 
 	inFile.close()
 	return dictList
